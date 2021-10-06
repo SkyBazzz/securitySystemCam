@@ -1,2 +1,2 @@
 # securitySystemCam
-Records everyone who tries enter your private teritory 
+Records everyone who tries enters your private territory
