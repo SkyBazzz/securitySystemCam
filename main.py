@@ -5,7 +5,6 @@ import datetime
 cap = cv2.VideoCapture(0)
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
-body_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_fullbody.xml")
 
 detection = False
 detection_stopped_time = None
@@ -13,7 +12,7 @@ timer_started = False
 SECONDS_TO_RECORD_AFTER_DETECTION = 5
 
 frame_size = (int(cap.get(3)), int(cap.get(4)))
-fourcc = cv2.VideoWriter_fourcc(*"mpv4")
+fourcc = cv2.VideoWriter_fourcc(*"mp4v")
 
 while True:
     _, frame = cap.read()
@@ -26,7 +25,7 @@ while True:
             timer_started = False
         else:
             detection = True
-            video_name = "video.mp4" + datetime.datetime.now().strftime("%d-%m-%Y-%H-%M-%S")
+            video_name = "video-" + datetime.datetime.now().strftime("%d-%m-%Y-%H-%M-%S")
             out = cv2.VideoWriter(f"{video_name}.mp4", fourcc, 20, frame_size)
             print("Started recording:")
     elif detection:
